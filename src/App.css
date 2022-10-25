@@ -1,41 +1,65 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Fonts */
+@import url( ./fonts/inter.css );
+
+/* Variabless */
+:root {
+  /* Colors */
+  --color-black: #050304;
+  --color-white: #F0E8F1;
+  --color-red: #CA2D44;
+  --color-green: #967E8B;
+  --color-blue: #2E24E8;
+  --color-yellow: #E8AB54;
+
+  /* Scale */
+  --scale-xs: 15px;
+  --scale-sm: 22px;
+  --scale-md: 35px;
+  --scale-lg: 41px;
+  --scale-xl: 67px;
+
+  /* Spacing */
+  --space-xs: 3px;
+  --space-sm: 7px;
+  --space-md: 11px;
+  --space-lg: 15px;
+  --space-xl: 22px;
+
+  /* Screens */
+  --screen-xs: 320px;
+  --screen-sm: 480px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1440px;
+
+  /* Timing */
+  --time-sh: 104ms;
+  --time-lg: 551ms;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+/* Reset */
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-feature-settings: "cv03", "cv02", "cv04", "cv08", "cv09", "zero";
+  margin: 0;
+  padding: 0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+html,
+body,
+main,
+#bpm {
+  height: 100vh;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  background-color: var( --color-black );  
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#bpm {
+  align-items: center;
+  color: var( --color-white );
+  cursor: pointer;
+  display: flex;
+  font-size: 5vw;
+  justify-content: center;
+  width: 100vw;
 }

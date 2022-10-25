@@ -1,0 +1,7 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 92">
+  <filter id="noise" x="0" y="0">
+    <feTurbulence type="fractalNoise" baseFrequency="0.66" numOctaves="3" stitchTiles="stitch" />
+    <feBlend mode="screen"/>
+  </filter>
+  <path d="M0 0h92v92H0z" filter="url( #noise )" opacity="0.11" />
+</svg>

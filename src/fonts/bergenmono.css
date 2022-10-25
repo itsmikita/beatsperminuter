@@ -1,0 +1,43 @@
+@font-face {
+  font-display: swap;
+  font-family: "Bergen Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url( "./bergenmono-regular.woff2" ) format( "woff2" );
+}
+@font-face {
+  font-display: swap;
+  font-family: "Bergen Mono";
+  font-style: italic;
+  font-weight: 600;
+  src: url( "./bergenmono-semibold-italic.woff2" ) format( "woff2" );
+}
+@font-face {
+  font-display: swap;
+  font-family: "Bergen Mono";
+  font-weight: 600;
+  font-style: normal;
+  src: url( "./bergenmono-semibold.woff2" ) format( "woff2" );
+}
+@font-face {
+  font-display: swap;
+  font-family: "Bergen Mono";
+  font-weight: 700;
+  font-style: normal;
+  src: url( "./bergenmono-bold.woff2" ) format( "woff2" );
+}
+@font-face {
+  font-display: swap;
+  font-family: "Bergen Mono";
+  font-weight: normal;
+  font-style: italic;
+  src: url( "./bergenmono-italic.woff2" ) format( "woff2" );
+}
+@font-face {
+  font-display: swap;
+  font-family: "Bergen Mono";
+  font-weight: 700;
+  font-style: italic;
+  src: url( "./bergenmono-bold-italic.woff2" ) format( "woff2" );
+}
+
