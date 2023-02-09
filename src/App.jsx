@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { guess } from "web-audio-beat-detector";
+import { Button, Counter, Frame, Hourglass } from "react95";
+import "./fonts/inter.var.woff2";
 import "./App.css";
 
 export default () => {
-  const [ bpm, setBpm ] = useState( "..." );
+  const [ bpm, setBpm ] = useState( 0 );
   let chunks = [];
 
   navigator.mediaDevices.getUserMedia( { audio: true } ).then( stream => {
@@ -14,20 +17,18 @@ export default () => {
         // chunks = [];
       }
     };
-    recorder.start( 60 );
+    recorder.start( 600 );
   } );
 
   const createBuffer = async ( chunks ) => {
     const blob = new Blob( chunks, { type: "audio/ogg" } );
-    console.log( blob );
     const url = URL.createObjectURL( blob );
     const request = new XMLHttpRequest();
     request.open( "GET", url, true );
     request.responseType = "arraybuffer";
     request.onload = ( data ) => {
       let context = new OfflineAudioContext( 1, data.total, 44100 );
-      context.decodeAudioData( request.response, ( buffer ) => {
-        console.log( buffer );
+      context.decodeAudioData( request.response, buffer => {
         prepare( buffer, context );
       } );
     };
@@ -47,14 +48,20 @@ export default () => {
     lpf.connect( hpf );
     hpf.connect( context.destination );
     source.start( 0 );
-    context.startRendering().then( renderedBuffer => process( renderedBuffer ) );
+    context.startRendering().then( renderedBuffer => {
+      process( renderedBuffer );
+      // guess( renderedBuffer ).then( ( { bpm, offset, tempo } ) => {
+      //   setBpm( bpm );
+      //   console.log( bpm, offset, tempo );
+      // } ).catch( error => console.warn( error ) );
+    } );
   };
 
   const process = ( buffer ) => {
     const peaks = getPeaks( buffer.getChannelData( 0 ) );
-    console.log( peaks );
+    // console.log( peaks );
     const groups = getIntervals( peaks );
-    console.log( groups );
+    // console.log( groups );
     if( groups.length ) {
       setBpm( groups[ 0 ].tempo );
     }
@@ -246,6 +253,10 @@ export default () => {
   };
 
   return (
-    <div id="bpm">{ bpm }</div>
+    <div className="wrapper">
+      <Counter size="lg" className="counter whole" minLength={ 3 } value={ bpm } />
+      <Counter size="lg" className="counter decimals" minLength={ 2 } />
+      {/* <Button className="button">Tap</Button> */}
+    </div>
   );
 };

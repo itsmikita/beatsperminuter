@@ -1,15 +1,35 @@
 /* Fonts */
-@import url( ./fonts/inter.css );
+@font-face {
+  font-family: "Inter";
+  src: url( /src/fonts/inter.var.woff2 ) format( "woff2" );
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FKRasterGrotesk";
+  src: url( /src/fonts/FKRasterGroteskTrial-Sharp.otf ) format( "opentype" );
+  font-weight: 100 900;
+  font-style: normal;
+}
 
 /* Variabless */
 :root {
   /* Colors */
-  --color-black: #050304;
-  --color-white: #F0E8F1;
-  --color-red: #CA2D44;
-  --color-green: #967E8B;
-  --color-blue: #2E24E8;
-  --color-yellow: #E8AB54;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-red: #FF3026;
+  --color-orange: #F58B00;
+  --color-yellow: #F5C200;
+  --color-green: #1CC337;
+  --color-mint: #00BDB4;
+  --color-teal: #2DA7BD;
+  --color-cyan: #41AFDC;
+  --color-blue: #0070F5;
+  --color-indigo: #5452CC;
+  --color-purple: #9F4BC9;
+  --color-pink: #F6234B;
+  --color-brown: #977A54;
+  --color-gray: #848489;
 
   /* Scale */
   --scale-xs: 15px;
@@ -39,27 +59,33 @@
 
 /* Reset */
 * {
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-feature-settings: "cv03", "cv02", "cv04", "cv08", "cv09", "zero";
+  /* font-smooth: never; */
+  font-weight: 500;
+  /* -webkit-font-smoothing: none; */
   margin: 0;
-  padding: 0;
+}
+body {
+  background-color: #EFEFEF;
 }
 html,
 body,
-main,
-#bpm {
+main#app {
   height: 100vh;
 }
-body {
-  background-color: var( --color-black );  
-}
-#bpm {
+.wrapper {
+  display: flex !important;
   align-items: center;
-  color: var( --color-white );
-  cursor: pointer;
-  display: flex;
-  font-size: 5vw;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
+}
+.counter {
+  margin: 5px;
+}
+.button {
+  height: 73px !important;
+  width: 96px !important;
+  margin: 5px;
 }

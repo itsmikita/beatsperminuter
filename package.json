@@ -1,18 +1,26 @@
 {
   "name": "beatsperminuter",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "subl . && yarn dev"
   },
   "dependencies": {
+    "@babel/core": "^7.20.12",
+    "@svgr/babel-preset": "^6.5.1",
+    "@svgr/core": "^6.5.1",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vite-plugin-svgr": "^2.2.1"
+    "react-is": "^18.2.0",
+    "react95": "^4.0.0",
+    "styled-components": "^5.3.6",
+    "vite-plugin-svgr": "^2.2.1",
+    "web-audio-beat-detector": "^8.1.41"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
